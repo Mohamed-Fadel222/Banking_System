@@ -39,6 +39,7 @@ public class ManageAccount
         }
     }
 
+
     public void changeFName(String newFName) {
         if (customer != null) {
             customer.setAddress(newFName);
@@ -53,6 +54,7 @@ public class ManageAccount
             System.out.println("Error: Customer object is null.");
         }
     }
+
     public void changeAddress(String newAddress) {
         if (customer != null) {
             customer.setAddress(newAddress);

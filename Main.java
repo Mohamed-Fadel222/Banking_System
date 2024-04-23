@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
+
        Customer cus = new Customer("youssef", "mahmoud", "yo", "123", "0100398", "dff", "checking", 22);
         Customer cus2 = new Customer("saif", "mahmoud", "sa", "1232", "0100398", "dff", "saving", 40);
         Customer.customers.add(cus);
@@ -9,6 +10,9 @@ public class Main {
         Customer.logininfo.put(cus2.getUsername(),cus2.getPassword());
         // Deposit some amount to the customer's account
        /* cus.deposit(100);
+
+       
+
         home homeForm = new home(cus);
 
 
@@ -72,5 +76,7 @@ public class Main {
 
 
 
+
+       
     }
 }

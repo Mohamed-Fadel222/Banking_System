@@ -13,8 +13,11 @@ public class home extends JFrame  {
     private JPanel home;
     private JButton accountDetailsButton;
     private JLabel welcome;
+
     private JButton ManageAccount;
     private JButton SignOut;
+
+
 
     JFrame frame = new JFrame();
 
@@ -28,6 +31,7 @@ public class home extends JFrame  {
        frame.setVisible(true);
        frame.setContentPane(home);
        welcome();
+
 
        inquiryButton.addActionListener(e -> {
 
@@ -58,6 +62,16 @@ public class home extends JFrame  {
             frame.dispose();
 
         });
+
+       inquiryButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+
+               gotodeposit();
+                frame.dispose();
+           }
+       });
+
    }
 
 public void gotodeposit(){
