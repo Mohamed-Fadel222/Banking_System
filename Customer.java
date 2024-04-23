@@ -9,7 +9,7 @@ public class Customer
     public static HashMap<String,String> logininfo = new HashMap<>();
 
     
-
+ManageAccount manage;
     String UID;
     private static int nextUserID = 1;
     String FName;
@@ -113,6 +113,11 @@ public class Customer
     public void transfer(double amount)
     {
         Account.PerformTransaction("transfer", amount);
+    } // SCANNER VERSION
+
+    public void transfer(double amount,Customer recipient) // USE IN GUI
+    {
+        Account.PerformTransaction("transfer", amount, recipient);
     }
 
     public void gettranshistory() {
@@ -145,7 +150,6 @@ public class Customer
         return null; 
     }
 
- 
 
 
 }

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="home">
+  <grid id="27dc6" binding="home" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="652" height="525"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="ac69" class="javax.swing.JButton" binding="Deposit">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="Deposit"/>
+        </properties>
+      </component>
+      <component id="5bb46" class="javax.swing.JButton" binding="transferButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="Transfer"/>
+        </properties>
+      </component>
+      <component id="91716" class="javax.swing.JButton" binding="inquiryButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="Inquiry"/>
+        </properties>
+      </component>
+      <component id="c094" class="javax.swing.JLabel" binding="welcome">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="18"/>
+          <text value="WELCOME USER"/>
+        </properties>
+      </component>
+      <component id="76766" class="javax.swing.JButton" binding="withdrawButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="Withdraw"/>
+        </properties>
+      </component>
+      <component id="2e3df" class="javax.swing.JButton" binding="loanProcessingButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="loan processing"/>
+        </properties>
+      </component>
+      <component id="569bb" class="javax.swing.JButton" binding="accountDetailsButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="Account Details"/>
+        </properties>
+      </component>
+      <component id="75aff" class="javax.swing.JButton" binding="transactionHistoryButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="transaction history"/>
+        </properties>
+      </component>
+      <component id="bdf9" class="javax.swing.JButton" binding="ManageAccount">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="Manage Account"/>
+        </properties>
+      </component>
+      <component id="7672c" class="javax.swing.JButton" binding="SignOut">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="50"/>
+            <maximum-size width="500" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <focusable value="false"/>
+          <text value="Sign Out"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
