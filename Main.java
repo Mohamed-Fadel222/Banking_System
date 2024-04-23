@@ -1,9 +1,18 @@
 public class Main {
     public static void main(String[] args) {
 
-        Customer cus = new Customer("youssef", "mahmoud", "yo", "123", "0100398", "dff", "checking", 22);
+
+       Customer cus = new Customer("youssef", "mahmoud", "yo", "123", "0100398", "dff", "checking", 22);
+        Customer cus2 = new Customer("saif", "mahmoud", "sa", "1232", "0100398", "dff", "saving", 40);
+        Customer.customers.add(cus);
+        Customer.customers.add(cus2);
+        Customer.logininfo.put(cus.getUsername(),cus.getPassword());
+        Customer.logininfo.put(cus2.getUsername(),cus2.getPassword());
         // Deposit some amount to the customer's account
-        cus.deposit(100);
+       /* cus.deposit(100);
+
+       
+
         home homeForm = new home(cus);
 
 
@@ -16,10 +25,10 @@ public class Main {
         cus.gettranshistory();
 
         // Create another customer
-        Customer cus2 = new Customer("saif", "mahmoud", "sa", "1232", "0100398", "dff", "saving", 40);
+
         // Add the first customer to the customer list and login info
         Customer.logininfo.put(cus.getUsername(), cus.getPassword());
-        Customer.customers.add(cus);
+
 
         // Change some details of the second customer
         ManageAccount manageAccount = new ManageAccount(cus2);
@@ -54,5 +63,20 @@ public class Main {
         // Calculate and display the interest for the loan
         double interest = loanProcessing.CalculateInterest(cus, loanRate, fixedRate);
         System.out.println("Interest for the loan: " + interest);
+
+       */
+
+       // new inquiryform(cus);
+
+
+//new TransferForm(cus);
+
+       // new AccountDetailsForm(cus);
+        new AccountDetailsForm(cus);
+
+
+
+
+       
     }
 }

@@ -113,6 +113,11 @@ ManageAccount manage;
     public void transfer(double amount)
     {
         Account.PerformTransaction("transfer", amount);
+    } // SCANNER VERSION
+
+    public void transfer(double amount,Customer recipient) // USE IN GUI
+    {
+        Account.PerformTransaction("transfer", amount, recipient);
     }
 
     public void gettranshistory() {

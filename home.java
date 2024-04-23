@@ -14,6 +14,11 @@ public class home extends JFrame  {
     private JButton accountDetailsButton;
     private JLabel welcome;
 
+    private JButton ManageAccount;
+    private JButton SignOut;
+
+
+
     JFrame frame = new JFrame();
 
     private Customer customer; // Declare a Customer object
@@ -27,6 +32,37 @@ public class home extends JFrame  {
        frame.setContentPane(home);
        welcome();
 
+
+       inquiryButton.addActionListener(e -> {
+
+           gotodeposit();
+            frame.dispose();
+       });
+
+       transferButton.addActionListener(e-> {
+           new TransferForm(customer);
+           frame.dispose();
+
+       });
+
+       accountDetailsButton.addActionListener(e-> {
+           new AccountDetailsForm(customer);
+           frame.dispose();
+
+       });
+
+        SignOut.addActionListener(e-> {
+            new LoginPage(Customer.logininfo);
+            frame.dispose();
+
+        });
+
+        ManageAccount.addActionListener(e-> {
+            new ManageAccountForm(customer);
+            frame.dispose();
+
+        });
+
        inquiryButton.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
@@ -35,6 +71,7 @@ public class home extends JFrame  {
                 frame.dispose();
            }
        });
+
    }
 
 public void gotodeposit(){
