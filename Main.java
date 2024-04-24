@@ -72,7 +72,7 @@ public class Main {
 //new TransferForm(cus);
 
        // new AccountDetailsForm(cus);
-        new AccountDetailsForm(cus);
+        new RegisterForm();
 
 
 
