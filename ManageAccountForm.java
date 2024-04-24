@@ -8,7 +8,10 @@ public class ManageAccountForm extends JFrame {
     private JTextField fNameField, lNameField, userNameField, passwordField, phoneNoField, addressField;
     private JButton confirmChangesButton, backToHomePageButton;
 
+
+String OldUserName;
     public ManageAccountForm(Customer customer) {
+         OldUserName = customer.getUsername().toLowerCase();
         frame.setTitle("Manage Account");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 600);
@@ -65,9 +68,9 @@ public class ManageAccountForm extends JFrame {
 
         confirmChangesButton.addActionListener(e -> {
             String newUsername = userNameField.getText().toLowerCase();
-            if (Customer.logininfo.containsKey(newUsername)) {
-                errorLabel.setText("Username already exists");
-            } else {
+            if(!Customer.logininfo.containsKey(newUsername) || OldUserName.equals(userNameField.getText().toLowerCase()))
+            {
+
                 Customer.logininfo.remove(customer.getUsername(),customer.getPassword());
                 customer.setFName(fNameField.getText());
                 customer.setLName(lNameField.getText());
@@ -81,6 +84,11 @@ public class ManageAccountForm extends JFrame {
                 errorLabel.setText(""); // Clear any previous error message
                 // Notify user of successful changes
                 JOptionPane.showMessageDialog(frame, "Changes confirmed!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                OldUserName = userNameField.getText();
+            }
+            else
+            {
+                errorLabel.setText("Username " + customer.getUsername() + " already exists");
             }
         });
 
