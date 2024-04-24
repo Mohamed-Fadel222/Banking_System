@@ -79,12 +79,57 @@ Transactions currenttransaction;
                System.out.println("Insufficient funds");
            }
        }
-       {
 
-       }
 
     }
 
+    public void PerformTransaction(String TransactionType, double amount, Customer recipient) //OVERLOAD
+    {
+
+        Transactions currenttransaction;
+        if(TransactionType.equals("deposit")){
+            InitialBalance+= amount;
+            currenttransaction = new Transactions(TransactionType, amount);
+            transactions.add(currenttransaction);
+
+        }
+        if(TransactionType.equals("withdraw")){
+            if(InitialBalance > amount) {
+
+
+                InitialBalance -= amount;
+                currenttransaction = new Transactions(TransactionType, amount);
+                transactions.add(currenttransaction);
+            }
+            else{
+                System.out.println("Insufficient amount for withdrawal");
+            }
+        }
+        if(TransactionType.equals("transfer"))
+        {
+
+
+
+            if(InitialBalance >= amount)
+            {
+                if(Customer.customers.contains(recipient))
+                {
+                    recipient.deposit(amount);
+                    InitialBalance -= amount;
+                    currenttransaction = new Transactions(TransactionType, amount);
+                    transactions.add(currenttransaction);
+                    System.out.println("Success");
+                }
+                else
+                    System.out.println("Customer not Found");
+
+            } else
+            {
+                System.out.println("Insufficient funds");
+            }
+        }
+
+    }
 
 
 }
