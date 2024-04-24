@@ -1,61 +1,17 @@
-import java.util.Scanner;
-
 public class Register {
 
-    public Register()
-    {
+    public Register() {}
 
-    }
-
-    public void RegisterAccount() {  // changed from constructor to method + Missing existing account checker
-
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter username:");
-        String username = scanner.nextLine().toLowerCase();
-
-
-        if (!Customer.logininfo.containsKey(username)) {
-            System.out.println("Enter first name:");
-            String FName = scanner.nextLine();
-
-            System.out.println("Enter last name:");
-            String LName = scanner.nextLine();
-
-
-            System.out.println("Enter password:");
-            String password = scanner.nextLine();
-
-            System.out.println("Enter phone number:");
-            String phoneNo = scanner.nextLine();
-
-            System.out.println("Enter address:");
-            String address = scanner.nextLine();
-
-            System.out.println("Enter account type:");
-            String accountType = scanner.nextLine();
-
-            System.out.println("Enter initial balance:");
-            double initialBalance = scanner.nextDouble();
-
-
+    public void RegisterAccount(String username, String fName, String lName, String password, String phoneNo, String address, String accountType, double initialBalance) {
+        if (!Customer.logininfo.containsKey(username.toLowerCase())) {
             BankAccount account = new BankAccount(accountType, initialBalance);
-            Customer newCustomer = new Customer(FName, LName, username.toLowerCase(), password, phoneNo, address, accountType, initialBalance);
-
-            //All usernames are to be stored in lowercase
+            Customer newCustomer = new Customer(fName, lName, username.toLowerCase(), password, phoneNo, address, accountType, initialBalance);
+            newCustomer.setAccount(account);
             Customer.customers.add(newCustomer);
-
-
-            Customer.logininfo.put(username, password);
-
-
+            Customer.logininfo.put(username.toLowerCase(), password);
             newCustomer.setID(newCustomer.getID());
-        }
-        else
-        {
+        } else {
             System.out.println("Username already registered");
         }
     }
-
 }

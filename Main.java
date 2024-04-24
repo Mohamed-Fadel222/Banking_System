@@ -9,6 +9,11 @@ public class Main {
         Customer.logininfo.put(cus.getUsername(),cus.getPassword());
         Customer.logininfo.put(cus2.getUsername(),cus2.getPassword());
 
+        cus.transfer(10,cus2);
+
+        System.out.println(cus.getAccount().InitialBalance);
+        System.out.println(cus2.getAccount().InitialBalance);
+
         // Deposit some amount to the customer's account
        /* cus.deposit(100);
 
@@ -74,7 +79,7 @@ public class Main {
 
        // new AccountDetailsForm(cus);
 
-        new LoginPage(Customer.logininfo);
+     //   new LoginPage(Customer.logininfo);
 
 
 

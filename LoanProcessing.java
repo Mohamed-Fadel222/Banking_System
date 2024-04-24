@@ -38,22 +38,7 @@ public class LoanProcessing {
         }
     }
 
-	public double CalculateInterest(Customer customer, double rate, boolean ratetype) {
-		double interest = 0.0;
-		// Calculate interest based on customer's account balance and the loan rate
-		double accountBalance = customer.getAccount().getInitialBalance();
 
-		if (ratetype) {
-			// Fixed rate
-			interest = rate * accountBalance;
-		} else {
-			// Variable rate (for demonstration purposes, let's assume a simple calculation)
-			// Assuming variable rate as 2% of account balance
-			interest = 0.02 * accountBalance;
-		}
-
-		return interest;
-	}
 
 
 	public boolean CheckEligibility(Customer customer, double rate, boolean ratetype, String Term, String Purpose) {

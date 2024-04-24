@@ -7,6 +7,8 @@ public class BankAccount
     String AccountType;
     double InitialBalance;
 
+
+
    public static ArrayList<Transactions> transactions ;//Transaction Log
 
     public BankAccount(String accountType,double initialBalance) {
@@ -122,6 +124,7 @@ Transactions currenttransaction;
                 if(Customer.customers.contains(recipient))
                 {
                     recipient.deposit(amount);
+
                     InitialBalance -= amount;
                     currenttransaction = new Transactions(TransactionType, amount);
                     transactions.add(currenttransaction);
