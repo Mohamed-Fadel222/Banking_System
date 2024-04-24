@@ -82,20 +82,20 @@ public class LoanProcessingForm extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        applyButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                applyForLoan();
-            }
-        });
+        applyButton.addActionListener(e ->
+                {
+            applyForLoan();
 
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Navigate back to the home page
-                new home(customer);
-                dispose(); // Close the current window
-            }
+                    new home(customer);
+                    dispose();
+
+        }
+        );
+
+        backButton.addActionListener(e -> {
+            // Navigate back to the home page
+            new home(customer);
+            dispose(); // Close the current window
         });
     }
 

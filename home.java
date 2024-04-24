@@ -82,6 +82,14 @@ public class home extends JFrame  {
             new LoanProcessingForm(customer);
             frame.dispose();
         });
+       Deposit.addActionListener(e -> {
+           new DepositForm(customer);
+           frame.dispose();
+       });
+        withdrawButton.addActionListener(e -> {
+            new WithdrawForm(customer);
+            frame.dispose();
+        });
    }
 
 public void gotodeposit(){
