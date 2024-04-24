@@ -13,7 +13,9 @@ public class LoanProcessingForm extends JFrame {
     private JTextField termField;
     private JLabel purposeLabel;
     private JTextField purposeField;
+    private JCheckBox fixedRateCheckBox; // Checkbox for indicating fixed or variable rate
     private JButton applyButton;
+    private JButton backButton;
     private JLabel errorLabel;
 
     public LoanProcessingForm(Customer customer) {
@@ -21,7 +23,7 @@ public class LoanProcessingForm extends JFrame {
 
         setTitle("Loan Processing");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 250);
+        setSize(400, 300);
         setResizable(false);
 
         JPanel panel = new JPanel(new GridBagLayout());
@@ -34,7 +36,9 @@ public class LoanProcessingForm extends JFrame {
         termField = new JTextField(10);
         purposeLabel = new JLabel("Purpose:");
         purposeField = new JTextField(20);
+        fixedRateCheckBox = new JCheckBox("Fixed Rate"); // Checkbox for indicating fixed or variable rate
         applyButton = new JButton("Apply");
+        backButton = new JButton("Back");
         errorLabel = new JLabel();
         errorLabel.setForeground(Color.RED);
 
@@ -58,11 +62,18 @@ public class LoanProcessingForm extends JFrame {
 
         gbc.gridx = 0;
         gbc.gridy = 3;
+        panel.add(fixedRateCheckBox, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         panel.add(applyButton, gbc);
 
-        gbc.gridy = 4;
+        gbc.gridy = 5;
+        panel.add(backButton, gbc);
+
+        gbc.gridy = 6;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         panel.add(errorLabel, gbc);
@@ -77,12 +88,22 @@ public class LoanProcessingForm extends JFrame {
                 applyForLoan();
             }
         });
+
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Navigate back to the home page
+                new home(customer);
+                dispose(); // Close the current window
+            }
+        });
     }
 
     private void applyForLoan() {
         String rateText = rateField.getText();
         String term = termField.getText();
         String purpose = purposeField.getText();
+        boolean isFixedRate = fixedRateCheckBox.isSelected(); // Get the value of the checkbox
 
         if (rateText.isEmpty() || term.isEmpty() || purpose.isEmpty()) {
             errorLabel.setText("Please fill in all fields.");
@@ -90,8 +111,8 @@ public class LoanProcessingForm extends JFrame {
             try {
                 double rate = Double.parseDouble(rateText);
                 LoanProcessing loanProcessing = new LoanProcessing(customer);
-                if (loanProcessing.CheckEligibility(customer, rate, true, term, purpose)) {
-                    loanProcessing.ApplyForLoan(customer, rate, true, term, purpose);
+                if (loanProcessing.CheckEligibility(customer, rate, isFixedRate, term, purpose)) {
+                    loanProcessing.ApplyForLoan(customer, rate, isFixedRate, term, purpose);
                     JOptionPane.showMessageDialog(this, "Loan application submitted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                 } else {
