@@ -8,6 +8,8 @@ public class Main {
         Customer.customers.add(cus2);
         Customer.logininfo.put(cus.getUsername(),cus.getPassword());
         Customer.logininfo.put(cus2.getUsername(),cus2.getPassword());
+
+
         // Deposit some amount to the customer's account
        /* cus.deposit(100);
 
@@ -72,7 +74,7 @@ public class Main {
 //new TransferForm(cus);
 
        // new AccountDetailsForm(cus);
-        new AccountDetailsForm(cus);
+        new LoginPage(Customer.logininfo);
 
 
 

@@ -24,7 +24,7 @@ public class TransferForm implements ActionListener {
         frame.setLayout(null); // Use null layout for fixed-size components
 
         // Load image
-        ImageIcon icon = new ImageIcon("src/Images/transfericon.png");
+        ImageIcon icon = new ImageIcon("D:\\semster6\\software testing\\bank\\Banking_System\\Images\\transfericon.png");
         Image image = icon.getImage(); // transform it
         Image newimg = image.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
         icon = new ImageIcon(newimg); // transform it backButton

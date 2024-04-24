@@ -7,7 +7,7 @@ public class BankAccount
     String AccountType;
     double InitialBalance;
 
-    ArrayList<Transactions> transactions ;//Transaction Log
+   public static ArrayList<Transactions> transactions ;//Transaction Log
 
     public BankAccount(String accountType,double initialBalance) {
         AccountType = accountType;
@@ -78,6 +78,13 @@ Transactions currenttransaction;
            {
                System.out.println("Insufficient funds");
            }
+
+
+       }
+       else if (TransactionType.equals("inquiry")) {
+           // Create an "inquiry" transaction
+           currenttransaction = new Transactions(TransactionType, amount);
+           transactions.add(currenttransaction);
        }
 
 

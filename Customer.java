@@ -120,12 +120,13 @@ ManageAccount manage;
         Account.PerformTransaction("transfer", amount, recipient);
     }
 
-    public void gettranshistory() {
+    public String gettranshistory() {
+        StringBuilder historyBuilder = new StringBuilder();
         for (Transactions transaction : Account.transactions) {
-            System.out.println(transaction);
+            historyBuilder.append(transaction.toString()).append("\n");
         }
+        return historyBuilder.toString();
     }
-
 
     public void displayaccountdetails() {
         System.out.println("account type is "+ Account.AccountType );

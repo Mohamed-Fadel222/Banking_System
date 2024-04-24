@@ -22,11 +22,12 @@ public class home extends JFrame  {
     JFrame frame = new JFrame();
 
     private Customer customer; // Declare a Customer object
-
+     BankAccount account;
 
 
     home(Customer customer){
         this.customer = customer;
+        this.account = account;
        frame.setSize(600,600);
        frame.setVisible(true);
        frame.setContentPane(home);
@@ -63,6 +64,12 @@ public class home extends JFrame  {
 
         });
 
+        transactionHistoryButton.addActionListener(e-> {
+            new transaction(customer);
+            frame.dispose();
+
+        });
+
        inquiryButton.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
@@ -75,9 +82,11 @@ public class home extends JFrame  {
    }
 
 public void gotodeposit(){
-   inquiryform nav = new inquiryform( customer);
+   inquiryform nav = new inquiryform( customer );
 
 }
+
+
 
 public void welcome(){
         welcome.setText("welcome " + customer.FName);
