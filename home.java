@@ -71,7 +71,10 @@ public class home extends JFrame  {
                 frame.dispose();
            }
        });
-
+       loanProcessingButton.addActionListener(e-> {
+            new LoanProcessingForm(customer);
+            frame.dispose();
+        });
    }
 
 public void gotodeposit(){
