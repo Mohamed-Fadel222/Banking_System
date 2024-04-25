@@ -7,8 +7,6 @@ public class Register {
             BankAccount account = new BankAccount(accountType, initialBalance);
             Customer newCustomer = new Customer(fName, lName, username.toLowerCase(), password, phoneNo, address, accountType, initialBalance);
             newCustomer.setAccount(account);
-            Customer.customers.add(newCustomer);
-            Customer.logininfo.put(username.toLowerCase(), password);
             newCustomer.setID(newCustomer.getID());
         } else {
             System.out.println("Username already registered");
