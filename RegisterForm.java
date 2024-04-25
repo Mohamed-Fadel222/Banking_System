@@ -7,7 +7,7 @@ public class RegisterForm implements ActionListener {
     private JLabel firstNameLabel, lastNameLabel, usernameLabel, passwordLabel, phoneNoLabel, addressLabel, accountTypeLabel;
     private JTextField firstNameField, lastNameField, usernameField, phoneNoField, addressField, accountTypeField;
     private JPasswordField passwordField;
-    private JButton registerButton;
+    private JButton registerButton, loginButton;
 
     public RegisterForm() {
         frame = new JFrame("Register");
@@ -33,9 +33,11 @@ public class RegisterForm implements ActionListener {
         addressField = new JTextField();
         accountTypeField = new JTextField();
 
-        // Initialize button
+        // Initialize buttons
         registerButton = new JButton("Register");
         registerButton.addActionListener(this);
+        loginButton = new JButton("Login"); // Initialize login button
+        loginButton.addActionListener(this);
 
         // Set bounds for components
         int labelWidth = 120;
@@ -70,6 +72,7 @@ public class RegisterForm implements ActionListener {
         accountTypeField.setBounds(padding + labelWidth, startY + 6 * (labelHeight + padding), fieldWidth, fieldHeight);
 
         registerButton.setBounds((frame.getWidth() - buttonWidth) / 2, startY + 7 * (labelHeight + padding), buttonWidth, buttonHeight);
+        loginButton.setBounds((frame.getWidth() - buttonWidth) / 2, startY + 8 * (labelHeight + padding), buttonWidth, buttonHeight); // Set bounds for login button
 
         // Add components to frame
         frame.add(firstNameLabel);
@@ -87,6 +90,7 @@ public class RegisterForm implements ActionListener {
         frame.add(accountTypeLabel);
         frame.add(accountTypeField);
         frame.add(registerButton);
+        frame.add(loginButton); // Add login button to frame
 
         frame.setVisible(true);
     }
@@ -103,15 +107,30 @@ public class RegisterForm implements ActionListener {
             String accountType = accountTypeField.getText();
             double initialBalance = 0; // Assume initial balance is 0
 
-            // Create a new customer and add to the list
-            Customer newCustomer = new Customer(fName, lName, username, password, phoneNo, address, accountType, initialBalance);
-            Customer.customers.add(newCustomer);
-            Customer.logininfo.put(newCustomer.Username.toString(), newCustomer.Password.toString()); // Add username and password to logininfo HashMap
 
-            JOptionPane.showMessageDialog(frame, "Registration successful!");
+            if (!Customer.logininfo.containsKey(username.toLowerCase())) {
+                Register register = new Register();
+                register.RegisterAccount(username, fName, lName, password, phoneNo, address, accountType, initialBalance);
+                JOptionPane.showMessageDialog(frame, "Registration successful!");
 
-            // Navigate to the home page
-            new home(newCustomer);
+                // Create a new Customer object
+                Customer newCustomer = new Customer(fName, lName, username, password, phoneNo, address, accountType, initialBalance);
+
+                // Add the new customer to the list of users
+                Customer.customers.add(newCustomer);
+                Customer.logininfo.put(newCustomer.Username.toLowerCase(), newCustomer.Password); // Add username and password to logininfo HashMap
+
+                // Navigate to the home page
+                new home(newCustomer);
+
+                // Dispose the register frame
+                frame.dispose();
+            } else {
+                JOptionPane.showMessageDialog(frame, "User is already registered.");
+            }
+        } else if (e.getSource() == loginButton) {
+            // Navigate to the login page
+            new LoginPage(Customer.logininfo);
 
             // Dispose the register frame
             frame.dispose();
