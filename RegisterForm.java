@@ -36,15 +36,15 @@ public class RegisterForm implements ActionListener {
         // Initialize buttons
         registerButton = new JButton("Register");
         registerButton.addActionListener(this);
-        loginButton = new JButton("Login"); // Initialize login button
+        loginButton = new JButton("already signed in"); // Initialize login button
         loginButton.addActionListener(this);
 
         // Set bounds for components
         int labelWidth = 120;
         int labelHeight = 30;
-        int fieldWidth = 250;
+        int fieldWidth = 300;
         int fieldHeight = 30;
-        int buttonWidth = 100;
+        int buttonWidth = 200;
         int buttonHeight = 30;
 
         int startY = 10;
@@ -105,8 +105,14 @@ public class RegisterForm implements ActionListener {
             String phoneNo = phoneNoField.getText();
             String address = addressField.getText();
             String accountType = accountTypeField.getText();
-            double initialBalance = 0; // Assume initial balance is 0
 
+            // Check if all fields are filled
+            if (fName.isEmpty() || lName.isEmpty() || username.isEmpty() || password.isEmpty() || phoneNo.isEmpty() || address.isEmpty() || accountType.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "Please fill all fields.");
+                return;
+            }
+
+            double initialBalance = 0; // Assume initial balance is 0
 
             if (!Customer.logininfo.containsKey(username.toLowerCase())) {
                 Register register = new Register();
