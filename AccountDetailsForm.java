@@ -37,7 +37,7 @@ public class AccountDetailsForm extends JFrame {
         Balance.setFont(new Font("Arial", Font.BOLD, 36));
 
         // Load the user silhouette image and scale it by 50%
-        ImageIcon userIcon = new ImageIcon("D:\\semster6\\software testing\\bank\\Banking_System\\Images\\UserSillhoute.png");
+        ImageIcon userIcon = new ImageIcon("Banking_System/Images/UserSillhoute.png");
         Image image = userIcon.getImage().getScaledInstance(userIcon.getIconWidth() / 3, userIcon.getIconHeight() / 3, Image.SCALE_SMOOTH);
         userIcon = new ImageIcon(image);
         userImage = new JLabel(userIcon);
