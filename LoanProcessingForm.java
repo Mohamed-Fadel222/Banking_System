@@ -114,7 +114,6 @@ public class LoanProcessingForm extends JFrame {
                 if (loanProcessing.CheckEligibility(customer, rate, isFixedRate, term, purpose)) {
                     loanProcessing.ApplyForLoan(customer, rate, isFixedRate, term, purpose);
                     JOptionPane.showMessageDialog(this, "Loan application submitted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    dispose();
                 } else {
                     errorLabel.setText("Sorry, you are not eligible for the loan.");
                 }
