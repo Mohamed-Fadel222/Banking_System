@@ -21,12 +21,14 @@ public class LoginPage implements ActionListener {
 
     private RoundedTextField userNameField = new RoundedTextField(10);
     private JPasswordField userPasswordField = new JPasswordField();
-    private RoundedButton loginButton = new RoundedButton("Login");
-    private RoundedButton resetButton = new RoundedButton("Reset");
+    private RoundedButton loginButton = new RoundedButton("Login", new ImageIcon("D://semster6//software testing//bank//Banking_System//Images//icons8-login-50.png"));
+
+    private RoundedButton resetButton = new RoundedButton("Reset", new ImageIcon("Images/icons8-bank-48.png"));
     private JLabel userNameLabel = new JLabel("Username:");
     private JLabel userPasswordLabel = new JLabel("Password:");
     private JLabel messageLabel = new JLabel();
     private JLabel registerLabel = new JLabel("Don't have an account? Click here to sign up");
+    private JLabel iconLabel = new JLabel(new ImageIcon("D://semster6//software testing//bank//Banking_System//Images//your_image.png")); // Change the path to your image
 
     private HashMap<String, String> logininfo;
 
@@ -34,6 +36,11 @@ public class LoginPage implements ActionListener {
         logininfo = loginInfoOriginal;
 
         contentPanel.setLayout(null); // Use absolute positioning
+
+        // Set frame icon
+        ImageIcon icon = new ImageIcon("D://semster6//software testing//bank//Banking_System//Images//icons8-bank-48.png");
+        frame.setIconImage(icon.getImage());
+
         frame.getContentPane().setBackground(new Color(0xD5DCF9)); // Set background color of the frame
 
         contentPanel.setLayout(null); // Use absolute positioning
@@ -65,6 +72,8 @@ public class LoginPage implements ActionListener {
             }
         });
 
+        iconLabel.setBounds(125, 250, 100, 100); // Adjust the position and size of the icon label as needed
+
         contentPanel.add(userNameLabel);
         contentPanel.add(userPasswordLabel);
         contentPanel.add(messageLabel);
@@ -73,15 +82,16 @@ public class LoginPage implements ActionListener {
         contentPanel.add(loginButton);
         contentPanel.add(resetButton);
         contentPanel.add(registerLabel);
+        contentPanel.add(iconLabel); // Add the icon label to the content panel
 
-        contentPanel.setOpaque(false); // Make the panel transparent
+        contentPanel.setOpaque(false);
 
         frame.add(contentPanel);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420, 420);
-        frame.setLocationRelativeTo(null); // Center the frame
-        frame.setResizable(false); // Prevent resizing
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
@@ -113,26 +123,26 @@ public class LoginPage implements ActionListener {
                 }
             }
 
-            // If username is not found
+
             messageLabel.setForeground(Color.red);
             messageLabel.setText("Username not found");
         }
     }
 
-    // Custom JTextField subclass for rounded text fields
+
     class RoundedTextField extends JTextField {
         private Shape shape;
 
         public RoundedTextField(int size) {
             super(size);
-            setOpaque(false); // Make text field transparent
+            setOpaque(false);
         }
 
         @Override
         protected void paintComponent(Graphics g) {
             Graphics2D g2 = (Graphics2D) g.create();
             if (shape == null || !shape.getBounds().equals(getBounds())) {
-                shape = new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, 20, 20); // Rounded rectangle
+                shape = new RoundRectangle2D.Float(0, 0, getWidth() - 1, getHeight() - 1, 20, 20);
             }
             g2.setColor(getBackground());
             g2.fill(shape);
@@ -141,12 +151,12 @@ public class LoginPage implements ActionListener {
         }
     }
 
-    // Custom JButton subclass for rounded buttons
+
     class RoundedButton extends JButton {
         private Color backgroundColor;
 
-        public RoundedButton(String text) {
-            super(text);
+        public RoundedButton(String text, Icon icon) {
+            super(text, icon);
             setContentAreaFilled(false);
             setFocusPainted(false);
             setOpaque(false);

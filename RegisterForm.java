@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +17,7 @@ public class RegisterForm implements ActionListener {
         frame.setSize(600, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(null); // Use null layout
-
+        frame.getContentPane().setBackground(new Color(0xD5DCF9));
         // Initialize labels
         firstNameLabel = new JLabel("First Name:");
         lastNameLabel = new JLabel("Last Name:");
