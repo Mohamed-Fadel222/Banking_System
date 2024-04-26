@@ -104,15 +104,16 @@ public class TransferForm implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == transferButton) {
-
             if (Double.parseDouble(amountField.getText()) > 0) {
-                if (Customer.customers.contains(transferer.getCustomerByName(customerNameField.getText().toLowerCase()))) {
-
+                // Convert input username to lowercase for case-insensitive comparison
+                String lowercaseUsername = customerNameField.getText().toLowerCase();
+                // Check if the lowercase username exists in the customer list
+                if (Customer.customers.contains(transferer.getCustomerByName(lowercaseUsername))) {
+                    // Perform the transfer logic
                     if (transferer.getAccount().InitialBalance >= Double.parseDouble(amountField.getText())) {
-                        transferer.transfer(Double.parseDouble(amountField.getText()), transferer.getCustomerByName(customerNameField.getText().toLowerCase()));
+                        transferer.transfer(Double.parseDouble(amountField.getText()), transferer.getCustomerByName(lowercaseUsername));
                         balanceLabel.setText("Your balance is " + transferer.getAccount().InitialBalance + "$");
-                        ErrorLabel.setText("Successfully transferred " + amountField.getText() + "$ to " + customerNameField.getText());
-
+                        ErrorLabel.setText("Successfully transferred " + amountField.getText() + "$ to " + lowercaseUsername);
                     } else {
                         ErrorLabel.setText("Insufficient funds");
                     }
@@ -122,7 +123,6 @@ public class TransferForm implements ActionListener {
             } else {
                 ErrorLabel.setText("Invalid Amount (must be greater than 0$)");
             }
-
         } else if (e.getSource() == backButton) {
 
             frame.dispose();

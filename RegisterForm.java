@@ -9,6 +9,8 @@ public class RegisterForm implements ActionListener {
     private JPasswordField passwordField;
     private JButton registerButton, loginButton;
 
+
+
     public RegisterForm() {
         frame = new JFrame("Register");
         frame.setSize(600, 600);
@@ -101,6 +103,7 @@ public class RegisterForm implements ActionListener {
             String fName = firstNameField.getText();
             String lName = lastNameField.getText();
             String username = usernameField.getText().toLowerCase(); // Convert username to lowercase
+            String actualUsername = usernameField.getText();
             String password = String.valueOf(passwordField.getPassword());
             String phoneNo = phoneNoField.getText();
             String address = addressField.getText();
@@ -117,6 +120,7 @@ public class RegisterForm implements ActionListener {
             if (!Customer.logininfo.containsKey(username.toLowerCase())) {
                 Register register = new Register();
                 Customer newCustomer=register.RegisterAccount(username, fName, lName, password, phoneNo, address, accountType, initialBalance);
+                newCustomer.setActualUsername(actualUsername);
                 JOptionPane.showMessageDialog(frame, "Registration successful!");
 
                 // Create a new Customer object

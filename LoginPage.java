@@ -93,23 +93,29 @@ public class LoginPage implements ActionListener {
         }
 
         if (e.getSource() == loginButton) {
-            String userName = userNameField.getText();
+            String userName = userNameField.getText().toLowerCase();
             String password = String.valueOf(userPasswordField.getPassword());
 
-            if (logininfo.containsKey(userName.toLowerCase())) {
-                if (logininfo.get(userName).equals(password)) {
-                    messageLabel.setForeground(Color.green);
-                    messageLabel.setText("Login successful");
-                    frame.dispose();
-                    new home((new Customer()).getCustomerByName(userName.toLowerCase()));
-                } else {
-                    messageLabel.setForeground(Color.red);
-                    messageLabel.setText("Wrong password");
+
+            for (String registeredUsername : logininfo.keySet()) {
+                if (registeredUsername.equalsIgnoreCase(userName)) {
+                    if (logininfo.get(registeredUsername).equals(password)) {
+                        messageLabel.setForeground(Color.green);
+                        messageLabel.setText("Login successful");
+                        frame.dispose();
+                        new home((new Customer()).getCustomerByName(registeredUsername));
+                        return;
+                    } else {
+                        messageLabel.setForeground(Color.red);
+                        messageLabel.setText("Wrong password");
+                        return;
+                    }
                 }
-            } else {
-                messageLabel.setForeground(Color.red);
-                messageLabel.setText("Username not found");
             }
+
+            // If username is not found
+            messageLabel.setForeground(Color.red);
+            messageLabel.setText("Username not found");
         }
     }
 

@@ -7,7 +7,7 @@ public class Register {
             BankAccount account = new BankAccount(accountType, initialBalance);
             Customer newCustomer = new Customer(fName, lName, username.toLowerCase(), password, phoneNo, address, accountType, initialBalance);
             Customer.customers.add(newCustomer);
-            Customer.logininfo.put(newCustomer.Username.toLowerCase(), newCustomer.Password);
+            Customer.logininfo.put(newCustomer.Username, newCustomer.Password);
             newCustomer.setAccount(account);
             newCustomer.setID(newCustomer.getID());
             return newCustomer;

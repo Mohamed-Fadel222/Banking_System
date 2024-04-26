@@ -19,6 +19,9 @@ ManageAccount manage;
     String PhoneNo;
     String Address;
 
+
+    String actualUsername;
+
     BankAccount Account;
  public Customer()
  {
@@ -40,7 +43,13 @@ ManageAccount manage;
         this.Account = new BankAccount(accountType, initialBalance);
 
     }
+    public String getActualUsername() {
+        return actualUsername;
+    }
 
+    public void setActualUsername(String actualUsername) {
+        this.actualUsername = actualUsername;
+    }
     public String getID() {
         return UID;
     }

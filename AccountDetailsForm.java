@@ -23,7 +23,7 @@ public class AccountDetailsForm extends JFrame {
         UID.setFont(new Font("Arial", Font.PLAIN, 24));
         Name = new JLabel("Name: " + customer.getFName() + " " + customer.getLName());
         Name.setFont(new Font("Arial", Font.PLAIN, 24));
-        Username = new JLabel("Username: " + customer.getUsername());
+        Username = new JLabel("Username: " + customer.getActualUsername());
         Username.setFont(new Font("Arial", Font.PLAIN, 24));
         Password = new JLabel("Password: " + customer.getPassword());
         Password.setFont(new Font("Arial", Font.PLAIN, 24));
