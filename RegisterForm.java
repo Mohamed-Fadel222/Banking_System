@@ -123,8 +123,8 @@ public class RegisterForm implements ActionListener {
                 //Customer newCustomer = new Customer(fName, lName, username, password, phoneNo, address, accountType, initialBalance);
 
                 // Add the new customer to the list of users
-                Customer.customers.add(newCustomer);
-                Customer.logininfo.put(newCustomer.Username.toLowerCase(), newCustomer.Password); // Add username and password to logininfo HashMap
+                 // Add username and password to logininfo HashMap
+
 
                 // Navigate to the home page
                 new home(newCustomer);

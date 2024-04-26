@@ -6,6 +6,8 @@ public class Register {
         if (!Customer.logininfo.containsKey(username.toLowerCase())) {
             BankAccount account = new BankAccount(accountType, initialBalance);
             Customer newCustomer = new Customer(fName, lName, username.toLowerCase(), password, phoneNo, address, accountType, initialBalance);
+            Customer.customers.add(newCustomer);
+            Customer.logininfo.put(newCustomer.Username.toLowerCase(), newCustomer.Password);
             newCustomer.setAccount(account);
             newCustomer.setID(newCustomer.getID());
             return newCustomer;
