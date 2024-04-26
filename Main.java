@@ -4,15 +4,16 @@ public class Main {
 
        Customer cus = new Customer("youssef", "mahmoud", "yo", "123", "0100398", "dff", "checking", 22);
         Customer cus2 = new Customer("saif", "mahmoud", "sa", "1232", "0100398", "dff", "saving", 40);
+        Customer cus3 = new Customer("Mohamed", "Fadel", "Mo", "1234", "0100398", "dff", "saving", 40);
+
         Customer.customers.add(cus);
         Customer.customers.add(cus2);
+        Customer.customers.add(cus3);
         Customer.logininfo.put(cus.getUsername(),cus.getPassword());
         Customer.logininfo.put(cus2.getUsername(),cus2.getPassword());
+        Customer.logininfo.put(cus3.getUsername(),cus3.getPassword());
 
-        cus.transfer(10,cus2);
-
-        System.out.println(cus.getAccount().InitialBalance);
-        System.out.println(cus2.getAccount().InitialBalance);
+        System.out.println(Customer.logininfo.containsKey(cus3.getUsername()));
 
         // Deposit some amount to the customer's account
        /* cus.deposit(100);
@@ -79,7 +80,7 @@ public class Main {
 
        // new AccountDetailsForm(cus);
 
-     //   new LoginPage(Customer.logininfo);
+        new LoginPage(Customer.logininfo);
 
 
 

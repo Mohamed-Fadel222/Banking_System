@@ -116,11 +116,11 @@ public class RegisterForm implements ActionListener {
 
             if (!Customer.logininfo.containsKey(username.toLowerCase())) {
                 Register register = new Register();
-                register.RegisterAccount(username, fName, lName, password, phoneNo, address, accountType, initialBalance);
+                Customer newCustomer=register.RegisterAccount(username, fName, lName, password, phoneNo, address, accountType, initialBalance);
                 JOptionPane.showMessageDialog(frame, "Registration successful!");
 
                 // Create a new Customer object
-                Customer newCustomer = new Customer(fName, lName, username, password, phoneNo, address, accountType, initialBalance);
+                //Customer newCustomer = new Customer(fName, lName, username, password, phoneNo, address, accountType, initialBalance);
 
                 // Add the new customer to the list of users
                 Customer.customers.add(newCustomer);
