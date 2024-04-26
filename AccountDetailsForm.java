@@ -18,7 +18,7 @@ public class AccountDetailsForm extends JFrame {
         panel.setLayout(layout);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
-
+        panel.setBackground(new Color(0xD5DCF9));
         UID = new JLabel("UID: " + customer.UID);
         UID.setFont(new Font("Arial", Font.PLAIN, 24));
         Name = new JLabel("Name: " + customer.getFName() + " " + customer.getLName());

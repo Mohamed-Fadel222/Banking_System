@@ -9,22 +9,34 @@ import java.util.HashMap;
 
 public class LoginPage implements ActionListener {
 
-    JFrame frame = new JFrame();
-    RoundedTextField userNameField = new RoundedTextField(10);
-    JPasswordField userPasswordField = new JPasswordField();
-    RoundedButton loginButton = new RoundedButton("Login");
-    RoundedButton resetButton = new RoundedButton("Reset");
-    JLabel userNameLabel = new JLabel("Username:");
-    JLabel userPasswordLabel = new JLabel("Password:");
-    JLabel messageLabel = new JLabel();
-    JLabel registerLabel = new JLabel("Don't have an account? Click here to sign up");
+    private JFrame frame = new JFrame();
+    private JPanel contentPanel = new JPanel() {
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            // Set background color
+            setBackground(new Color(240, 240, 240)); // Light gray color
+        }
+    };
 
-    HashMap<String, String> logininfo;
+    private RoundedTextField userNameField = new RoundedTextField(10);
+    private JPasswordField userPasswordField = new JPasswordField();
+    private RoundedButton loginButton = new RoundedButton("Login");
+    private RoundedButton resetButton = new RoundedButton("Reset");
+    private JLabel userNameLabel = new JLabel("Username:");
+    private JLabel userPasswordLabel = new JLabel("Password:");
+    private JLabel messageLabel = new JLabel();
+    private JLabel registerLabel = new JLabel("Don't have an account? Click here to sign up");
 
-    LoginPage(HashMap<String, String> loginInfoOriginal) {
+    private HashMap<String, String> logininfo;
 
+    public LoginPage(HashMap<String, String> loginInfoOriginal) {
         logininfo = loginInfoOriginal;
 
+        contentPanel.setLayout(null); // Use absolute positioning
+        frame.getContentPane().setBackground(new Color(0xD5DCF9)); // Set background color of the frame
+
+        contentPanel.setLayout(null); // Use absolute positioning
         userNameLabel.setBounds(50, 100, 75, 25);
         userPasswordLabel.setBounds(50, 150, 75, 25);
 
@@ -42,16 +54,7 @@ public class LoginPage implements ActionListener {
         resetButton.setFocusable(false);
         resetButton.addActionListener(this);
 
-        frame.add(userNameLabel);
-        frame.add(userPasswordLabel);
-        frame.add(messageLabel);
-        frame.add(userNameField);
-        frame.add(userPasswordField);
-        frame.add(loginButton);
-        frame.add(resetButton);
-        frame.add(registerLabel);
-
-        // Add mouse listener to the registerLabel
+        registerLabel.setBounds(125, 280, 250, 25);
         registerLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         registerLabel.setForeground(Color.BLUE);
         registerLabel.addMouseListener(new MouseAdapter() {
@@ -59,30 +62,37 @@ public class LoginPage implements ActionListener {
             public void mouseClicked(MouseEvent e) {
                 new RegisterForm();
                 frame.dispose();
-
             }
         });
 
-        // Set bounds for registerLabel
-        registerLabel.setBounds(125, 280, 250, 25);
+        contentPanel.add(userNameLabel);
+        contentPanel.add(userPasswordLabel);
+        contentPanel.add(messageLabel);
+        contentPanel.add(userNameField);
+        contentPanel.add(userPasswordField);
+        contentPanel.add(loginButton);
+        contentPanel.add(resetButton);
+        contentPanel.add(registerLabel);
+
+        contentPanel.setOpaque(false); // Make the panel transparent
+
+        frame.add(contentPanel);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420, 420);
-        frame.setLayout(null);
+        frame.setLocationRelativeTo(null); // Center the frame
+        frame.setResizable(false); // Prevent resizing
         frame.setVisible(true);
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource() == resetButton) {
             userNameField.setText("");
             userPasswordField.setText("");
         }
 
         if (e.getSource() == loginButton) {
-
             String userName = userNameField.getText();
             String password = String.valueOf(userPasswordField.getPassword());
 
@@ -92,12 +102,10 @@ public class LoginPage implements ActionListener {
                     messageLabel.setText("Login successful");
                     frame.dispose();
                     new home((new Customer()).getCustomerByName(userName.toLowerCase()));
-
                 } else {
                     messageLabel.setForeground(Color.red);
                     messageLabel.setText("Wrong password");
                 }
-
             } else {
                 messageLabel.setForeground(Color.red);
                 messageLabel.setText("Username not found");

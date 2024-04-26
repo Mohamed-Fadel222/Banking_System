@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class transform {
 
     private JPanel transPanel;
@@ -35,6 +36,7 @@ public class transform {
         button2 = new JButton("Back to Home");
         buttonPanel.add(button1);
         buttonPanel.add(button2);
+        buttonPanel.setBackground(new Color(0xD5DCF9)); // Set background color for the button panel
         transPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         // Create a JScrollPane for the text area
@@ -54,6 +56,7 @@ public class transform {
 
         // Add the scroll pane to the NORTH (top) of the main panel
         transPanel.add(scrollPane, BorderLayout.NORTH);
+        transPanel.setBackground(new Color(0xD5DCF9)); // Set background color for the main panel
     }
 
     private void addListeners() {

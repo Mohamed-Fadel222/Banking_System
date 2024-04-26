@@ -16,8 +16,8 @@ public class Main {
 //
 //        System.out.println(Customer.logininfo.containsKey(cus3.getUsername()));
 //
-//        cus.transfer(10,cus2);
         new LoginPage(Customer.logininfo);
+         cus.deposit(7);
         System.out.println(cus.getAccount().InitialBalance);
         System.out.println(cus2.getAccount().InitialBalance);
 

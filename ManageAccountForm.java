@@ -8,16 +8,16 @@ public class ManageAccountForm extends JFrame {
     private JTextField fNameField, lNameField, userNameField, passwordField, phoneNoField, addressField;
     private JButton confirmChangesButton, backToHomePageButton;
 
+    String OldUserName;
 
-String OldUserName;
     public ManageAccountForm(Customer customer) {
-         OldUserName = customer.getUsername().toLowerCase();
+        OldUserName = customer.getUsername().toLowerCase();
         frame.setTitle("Manage Account");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 600);
 
         JPanel panel = new JPanel(new GridLayout(0, 2, 10, 10)); // Added spacing between items
-
+        panel.setBackground(new Color(0xD5DCF9));
         fName = new JLabel("Change First Name:");
         lName = new JLabel("Change Last Name:");
         userName = new JLabel("Change Username:");
@@ -39,9 +39,8 @@ String OldUserName;
 
         backToHomePageButton = new JButton("Back to Homepage");
 
-
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // Panel for buttons with horizontal layout
-
+        buttonPanel.setBackground(new Color(0xD5DCF9)); // Set background color for the button panel
 
         buttonPanel.add(confirmChangesButton);
         buttonPanel.add(backToHomePageButton);
@@ -68,26 +67,23 @@ String OldUserName;
 
         confirmChangesButton.addActionListener(e -> {
             String newUsername = userNameField.getText().toLowerCase();
-            if(!Customer.logininfo.containsKey(newUsername) || OldUserName.equals(userNameField.getText().toLowerCase()))
-            {
+            if (!Customer.logininfo.containsKey(newUsername) || OldUserName.equals(userNameField.getText().toLowerCase())) {
 
-                Customer.logininfo.remove(customer.getUsername(),customer.getPassword());
+                Customer.logininfo.remove(customer.getUsername(), customer.getPassword());
                 customer.setFName(fNameField.getText());
                 customer.setLName(lNameField.getText());
                 customer.setUsername(newUsername.toLowerCase());
                 customer.setPassword(passwordField.getText());
                 customer.setPhoneNo(phoneNoField.getText());
                 customer.setAddress(addressField.getText());
-                Customer.logininfo.put(customer.getUsername(),customer.getPassword());
+                Customer.logininfo.put(customer.getUsername(), customer.getPassword());
 
                 // You can add more setters as needed for other attributes
                 errorLabel.setText(""); // Clear any previous error message
                 // Notify user of successful changes
                 JOptionPane.showMessageDialog(frame, "Changes confirmed!", "Success", JOptionPane.INFORMATION_MESSAGE);
                 OldUserName = userNameField.getText();
-            }
-            else
-            {
+            } else {
                 errorLabel.setText("Username " + customer.getUsername() + " already exists");
             }
         });
@@ -98,6 +94,4 @@ String OldUserName;
             new home(customer); // Open the homepage
         });
     }
-
-
 }

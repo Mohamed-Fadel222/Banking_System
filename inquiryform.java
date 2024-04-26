@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,7 +20,7 @@ public class inquiryform {
         dep.setSize(600,600);
         dep.setVisible(true);
         dep.setContentPane(inquiry);
-
+        dep.getContentPane().setBackground(new Color(0xD5DCF9));
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

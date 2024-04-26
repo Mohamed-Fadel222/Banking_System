@@ -29,7 +29,7 @@ public class LoanProcessingForm extends JFrame {
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
-
+        panel.setBackground(new Color(0xD5DCF9));
         rateLabel = new JLabel("Interest Rate:");
         rateField = new JTextField(10);
         termLabel = new JLabel("Loan Term:");
