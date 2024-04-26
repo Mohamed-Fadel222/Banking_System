@@ -87,7 +87,7 @@ public class Main {
 
        // new AccountDetailsForm(cus);
 
-        new LoginPage(Customer.logininfo);
+
 
 
 
