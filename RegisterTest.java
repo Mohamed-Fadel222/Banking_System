@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,6 +40,11 @@ public class RegisterTest {
 
         register.RegisterAccount("johndoe", "Jane", "Smith", "newpassword", "9876543210", "456 Elm St", "Checking", 2000.0);
         assertEquals(1, Customer.customers.size());
+    }
+
+    @AfterAll
+    public static void tearDownAfterClass() {
+        System.out.println("All tests have been completed.");
     }
 
 }

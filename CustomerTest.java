@@ -97,6 +97,27 @@ public class CustomerTest {
         assertDoesNotThrow(() -> customer.displayaccountdetails());
     }
 
+    @Test
+    @Order(12)
+    public void Invalid_Deposit() {
+        customer.deposit(-1.0);
+        assertEquals(1000.0, customer.getAccount().getInitialBalance());
+    }
+    @Test
+    @Order(13)
+    public void Invalid_Withdraw() {
+        customer.withdraw(-1.0);
+        assertEquals(1000.0, customer.getAccount().getInitialBalance());
+    }
+    @Test
+    @Order(14)
+    public void Invalid_Transfer() {
+        customer.transfer(-1.0, recipient);
+        assertEquals(1000.0, customer.getAccount().getInitialBalance());
+        assertEquals(2000.0, recipient.getAccount().getInitialBalance());
+    }
+
+
     @AfterAll
     public static void tearDownAfterClass() {
         System.out.println("Test finished");

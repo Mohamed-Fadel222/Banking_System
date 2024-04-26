@@ -59,20 +59,24 @@ public class WithdrawForm implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == confirmButton) {
-            double amount = Double.parseDouble(amountField.getText());
-            if (amount <= 0) {
-                JOptionPane.showMessageDialog(frame, "Invalid amount. Amount must be greater than 0.");
-            } else if (amount > customer.getAccount().InitialBalance) {
-                JOptionPane.showMessageDialog(frame, "Insufficient funds. Please enter an amount less than or equal to your current balance.");
-            } else {
-                customer.withdraw(amount);
-                JOptionPane.showMessageDialog(frame, "Withdrawn " + amount + " from your account.");
-                withdrawLabel.setText("Enter the amount to withdraw: Current Balance is "+ customer.getAccount().InitialBalance);
-                amountField.setText("");
+            try {
+                double amount = Double.parseDouble(amountField.getText());
+                if (amount <= 0) {
+                    JOptionPane.showMessageDialog(frame, "Invalid amount. Amount must be greater than 0.");
+                } else if (amount > customer.getAccount().InitialBalance) {
+                    JOptionPane.showMessageDialog(frame, "Insufficient funds. Please enter an amount less than or equal to your current balance.");
+                } else {
+                    customer.withdraw(amount);
+                    JOptionPane.showMessageDialog(frame, "Withdrawn " + amount + " from your account.");
+                    withdrawLabel.setText("Enter the amount to withdraw: Current Balance is "+ customer.getAccount().InitialBalance);
+                    amountField.setText("");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame, "Invalid input. Please enter a valid number.");
             }
         } else if (e.getSource() == homeButton) {
             frame.dispose();
-            new home(customer); // Assuming you have a Home class that represents the home window
+            new home(customer);
         }
     }
 

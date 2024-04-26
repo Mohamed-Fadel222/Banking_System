@@ -71,10 +71,22 @@ public class BankAccountTest {
     @Test
     @Order(8)
     public void testPerformTransaction_Inquiry() {
-        bankAccount.PerformTransaction("inquiry", 0.0);
+        bankAccount.PerformTransaction("Deposit", -1.0);
         // No change in balance, so it should remain the same
         assertEquals(1000.0, bankAccount.getInitialBalance());
     }
+
+    @Test
+    @Order(9)
+    public void testPerformTransaction_InvalidTransaction() {
+        bankAccount.PerformTransaction("invalid", -1);
+
+        assertEquals(1000.0, bankAccount.getInitialBalance());
+    }
+
+
+
+
 
     @AfterAll
     public static void tearDownAfterClass() {

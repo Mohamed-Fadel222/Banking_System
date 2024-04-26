@@ -36,13 +36,17 @@ public class BankAccount
     public void PerformTransaction( String TransactionType, double amount){
 Transactions currenttransaction;
         if(TransactionType.equals("deposit")){
-            InitialBalance+= amount;
-            currenttransaction = new Transactions(TransactionType, amount);
-           transactions.add(currenttransaction);
-
+            if(amount > 0) {
+                InitialBalance += amount;
+                currenttransaction = new Transactions(TransactionType, amount);
+                transactions.add(currenttransaction);
+            }
+            else{
+                System.out.println("Invalid amount");
+            }
         }
         if(TransactionType.equals("withdraw")){
-            if(InitialBalance > amount) {
+            if(InitialBalance > amount && amount > 0) {
 
 
                 InitialBalance -= amount;
@@ -63,7 +67,7 @@ Transactions currenttransaction;
            Customer recipient = new Customer();
 
 
-           if(InitialBalance >= amount)
+           if(InitialBalance >= amount && amount > 0)
            {
                if(Customer.logininfo.containsKey(RecipientName))
                {
@@ -119,7 +123,7 @@ Transactions currenttransaction;
 
 
 
-            if(InitialBalance >= amount)
+            if(InitialBalance >= amount && amount > 0)
             {
                 if(Customer.customers.contains(recipient))
                 {

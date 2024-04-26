@@ -58,14 +58,18 @@ public class DepositForm implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == confirmButton) {
-            double amount = Double.parseDouble(amountField.getText());
-            if (amount <= 0) {
-                JOptionPane.showMessageDialog(frame, "Invalid amount. Amount must be greater than 0.");
-            } else {
-                customer.deposit(amount);
-                JOptionPane.showMessageDialog(frame, "Deposited " + amount + " to your account.");
-                depositLabel.setText("Enter the amount to deposit: Current Balance is " + customer.getAccount().InitialBalance);
-                amountField.setText("");
+            try {
+                double amount = Double.parseDouble(amountField.getText());
+                if (amount <= 0) {
+                    JOptionPane.showMessageDialog(frame, "Invalid amount. Amount must be greater than 0.");
+                } else {
+                    customer.deposit(amount);
+                    JOptionPane.showMessageDialog(frame, "Deposited " + amount + " to your account.");
+                    depositLabel.setText("Enter the amount to deposit: Current Balance is " + customer.getAccount().InitialBalance);
+                    amountField.setText("");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame, "Invalid input. Please enter a valid number.");
             }
         } else if (e.getSource() == homeButton) {
             frame.dispose();
