@@ -34,11 +34,6 @@ public class home extends JFrame  {
        welcome();
 
 
-       inquiryButton.addActionListener(e -> {
-
-           gotodeposit();
-            frame.dispose();
-       });
 
        transferButton.addActionListener(e-> {
            new TransferForm(customer);
@@ -74,8 +69,8 @@ public class home extends JFrame  {
            @Override
            public void actionPerformed(ActionEvent e) {
 
-               gotodeposit();
-                frame.dispose();
+               new inquiryform(customer);
+               frame.dispose();
            }
        });
        loanProcessingButton.addActionListener(e-> {
@@ -92,10 +87,7 @@ public class home extends JFrame  {
         });
    }
 
-public void gotodeposit(){
-   inquiryform nav = new inquiryform( customer );
 
-}
 
 
 

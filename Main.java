@@ -13,7 +13,14 @@ public class Main {
         Customer.logininfo.put(cus2.getUsername(),cus2.getPassword());
         Customer.logininfo.put(cus3.getUsername(),cus3.getPassword());
 
+
         System.out.println(Customer.logininfo.containsKey(cus3.getUsername()));
+
+        cus.transfer(10,cus2);
+        new LoginPage(Customer.logininfo);
+        System.out.println(cus.getAccount().InitialBalance);
+        System.out.println(cus2.getAccount().InitialBalance);
+
 
         // Deposit some amount to the customer's account
        /* cus.deposit(100);
