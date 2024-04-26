@@ -60,7 +60,7 @@ public class home extends JFrame  {
         });
 
         transactionHistoryButton.addActionListener(e-> {
-            new transaction(customer);
+            new transform(customer);
             frame.dispose();
 
         });
