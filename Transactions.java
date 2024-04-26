@@ -41,14 +41,14 @@ public class Transactions
         StringBuilder sb = new StringBuilder();
 
 
-        sb.append("--------------------------------------\n");
-        sb.append("              TRANSACTION              \n");
-        sb.append("--------------------------------------\n");
+        sb.append("-\n");
+        sb.append("  TRANSACTION \n");
+        sb.append("-\n");
 
 
         switch (TransactionType) {
             case "deposit":
-                sb.append("Type:    Deposit\n");
+                sb.append("Type:    Deposit: \n");
                 break;
             case "withdraw":
                 sb.append("Type:    Withdrawal\n");
@@ -65,9 +65,9 @@ public class Transactions
         }
 
         sb.append("Amount:  $").append(amount).append("\n");
-        sb.append("--------------------------------------\n");
+        sb.append("--\n");
         sb.append("\n");
-        sb.append("--------------------------------------\n");
+        sb.append("--\n");
 
         return sb.toString();
     }

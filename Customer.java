@@ -123,9 +123,9 @@ ManageAccount manage;
     public String gettranshistory() {
         StringBuilder historyBuilder = new StringBuilder();
         for (Transactions transaction : Account.transactions) {
-            historyBuilder.append(transaction.toString()).append("\n");
+            historyBuilder.append(transaction.toString()).append("<br>");
         }
-        return historyBuilder.toString();
+        return "<html>" + historyBuilder.toString() + "</html>";
     }
 
     public void displayaccountdetails() {
@@ -150,7 +150,9 @@ ManageAccount manage;
         }
         return null; 
     }
-
+    public void clearTransactions() {
+        Account.transactions.clear();
+    }
 
 
 }

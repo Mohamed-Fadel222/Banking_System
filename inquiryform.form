@@ -16,7 +16,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="check"/>
         </properties>
       </component>
       <component id="8b023" class="javax.swing.JLabel" binding="balance">
@@ -35,7 +35,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="Home"/>
         </properties>
       </component>
     </children>
