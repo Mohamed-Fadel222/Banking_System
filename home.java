@@ -22,30 +22,30 @@ public class home extends JFrame  {
     JFrame frame = new JFrame();
 
     private Customer customer; // Declare a Customer object
-     BankAccount account;
+    BankAccount account;
 
 
     home(Customer customer){
         this.customer = customer;
         this.account = account;
-       frame.setSize(600,600);
-       frame.setVisible(true);
-       frame.setContentPane(home);
-       welcome();
+        frame.setSize(600,600);
+        frame.setVisible(true);
+        frame.setContentPane(home);
+        welcome();
 
 
 
-       transferButton.addActionListener(e-> {
-           new TransferForm(customer);
-           frame.dispose();
+        transferButton.addActionListener(e-> {
+            new TransferForm(customer);
+            frame.dispose();
 
-       });
+        });
 
-       accountDetailsButton.addActionListener(e-> {
-           new AccountDetailsForm(customer);
-           frame.dispose();
+        accountDetailsButton.addActionListener(e-> {
+            new AccountDetailsForm(customer);
+            frame.dispose();
 
-       });
+        });
 
         SignOut.addActionListener(e-> {
             new LoginPage(Customer.logininfo);
@@ -65,34 +65,34 @@ public class home extends JFrame  {
 
         });
 
-       inquiryButton.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
+        inquiryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-               new inquiryform(customer);
-               frame.dispose();
-           }
-       });
-       loanProcessingButton.addActionListener(e-> {
+                new inquiryform(customer);
+                frame.dispose();
+            }
+        });
+        loanProcessingButton.addActionListener(e-> {
             new LoanProcessingForm(customer);
             frame.dispose();
         });
-       Deposit.addActionListener(e -> {
-           new DepositForm(customer);
-           frame.dispose();
-       });
+        Deposit.addActionListener(e -> {
+            new DepositForm(customer);
+            frame.dispose();
+        });
         withdrawButton.addActionListener(e -> {
             new WithdrawForm(customer);
             frame.dispose();
         });
-   }
+    }
 
 
 
 
 
-public void welcome(){
+    public void welcome(){
         welcome.setText("welcome " + customer.FName);
-}
+    }
 
 }
