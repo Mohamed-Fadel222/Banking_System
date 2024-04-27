@@ -13,7 +13,7 @@ public class LoanProcessingForm extends JFrame {
     private JTextField termField;
     private JLabel purposeLabel;
     private JTextField purposeField;
-    private JCheckBox fixedRateCheckBox; // Checkbox for indicating fixed or variable rate
+    private JCheckBox fixedRateCheckBox; 
     private JButton applyButton;
     private JButton backButton;
     private JLabel errorLabel;
@@ -36,7 +36,7 @@ public class LoanProcessingForm extends JFrame {
         termField = new JTextField(10);
         purposeLabel = new JLabel("Purpose:");
         purposeField = new JTextField(20);
-        fixedRateCheckBox = new JCheckBox("Fixed Rate"); // Checkbox for indicating fixed or variable rate
+        fixedRateCheckBox = new JCheckBox("Fixed Rate"); 
         applyButton = new JButton("Apply");
         backButton = new JButton("Back");
         errorLabel = new JLabel();
